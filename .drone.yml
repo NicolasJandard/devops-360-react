@@ -4,25 +4,25 @@ name: react-ci-cd
 
 steps:
     - name: dependencies
-        image: node:9-alpine
-        commands:
-            - npm install
+      image: node:9-alpine
+      commands:
+        - npm install
     
     - name: build
-        image: node:9-alpine
-        commands:
-            - npm run build
+      image: node:9-alpine
+      commands:
+        - npm run build
 
     - name: tests
-        image: node:9-alpine
-        commands:
-            - npm test
+      image: node:9-alpine
+      commands:
+        - npm test
 
     - name: notify
-        image: plugins/slack
-        settings:
-            webhook:
-                from_secret: slack_webhook
-            channel: react-ci-njandard
-            username: Drone.io
-            icon_url: https://avatars0.githubusercontent.com/u/2181346?s=400&v=4
+      image: plugins/slack
+      settings:
+        webhook:
+            from_secret: slack_webhook
+        channel: react-ci-njandard
+        username: Drone.io
+        icon_url: https://avatars0.githubusercontent.com/u/2181346?s=400&v=4
